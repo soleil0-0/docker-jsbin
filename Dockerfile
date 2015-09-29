@@ -32,8 +32,9 @@ ADD src $AP/
 
 WORKDIR $AP
 
-RUN npm install -g npm \
-	&& npm install jasperjs \
+RUN npm update -g \
+	&& npm install --save memcached@2.2.0 \
 	&& npm install
+	&& npm cache clean
 
 CMD ["supervisord", "-n"]
