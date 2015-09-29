@@ -1,5 +1,5 @@
-install:src
-	mkdir -p src/node_modules && npm install src
+install:
+	mkdir -p src/node_modules && npm install --prefix src
 
 build:
 	docker build -t qband/docker-jsbin:latest .

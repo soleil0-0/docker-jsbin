@@ -1,3 +1,4 @@
 [submodule "src"]
 	path = src
 	url = https://github.com/jsbin/jsbin.git
+	ignore = dirty
