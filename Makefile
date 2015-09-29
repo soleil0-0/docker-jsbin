@@ -22,7 +22,7 @@ run-sp:
 	&& supervisord -n
 
 test:
-	curl localhost:8082
+	wget --spider localhost:8082
 
 clean:
 	rm -rf src/node_modules \
