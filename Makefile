@@ -18,6 +18,7 @@ run-sp:
 	&& cp supervisord/conf.d/* /etc/supervisor/conf.d \
 	&& sed -i "s~directory=.*~directory=$(shell pwd)/src~" /etc/supervisor/conf.d/node.conf \
 	&& sed -i "s~command=/usr/local/bin/node .*~command=/usr/local/bin/npm start~" /etc/supervisor/conf.d/node.conf \
+	&& JSBIN_CONFIG=$(shell pwd)/src/config.default.json
 	&& supervisord -n
 
 test:

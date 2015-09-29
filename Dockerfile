@@ -31,10 +31,12 @@ ADD ./supervisord/conf.d/* $SCPATH/
 ADD src $AP/
 
 WORKDIR $AP
+ENV JSBIN_CONFIG $AP/config.default.json
 
 RUN npm update -g \
-	&& npm install --save memcached@2.2.0 \
-	&& npm install
+	&& npm install --save memcached@2.2.0 casperjs \
+	&& npm install \
 	&& npm cache clean
 
-CMD ["supervisord", "-n"]
+#CMD ["supervisord", "-n"]
+CMD ["node", "./bin/jsbin"]
