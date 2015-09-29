@@ -5,6 +5,8 @@ dockerize jsbin
 ## Prerequisites
 
 - Node.js
+- SuperVisor
+	- sudo apt-get install supervisor
 
 ## preparation
 
@@ -15,12 +17,15 @@ dockerize jsbin
 ## command
 
 - docker related
-	- build docker image `make build`
-	- run docker image as container `make run-container`
+	- build docker image `sudo make build`
+	- run docker image as container `sudo make run-container`
 
 - for test
 	- install jsbin dependencies `make install`
-	- run jsbin in localhost `make run`
+	- run
+		- run jsbin in localhost `make run`
+		- run in supervisord `sudo make run-sp`
+	- clean test files `make clean`
 	- other
 		- delete unused docker containers & images
 			- sudo docker ps -a | grep 'minute\|seconds' | awk '{print $1}' | xargs sudo docker rm
