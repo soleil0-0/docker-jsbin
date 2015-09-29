@@ -11,7 +11,7 @@ run:
 	&& npm start
 
 run-container:
-	docker run --name jsbin -it -p 8082:3000 qband/docker-jsbin
+	docker run --name jsbin -d -p 8082:3000 qband/docker-jsbin
 
 run-sp:
 	mkdir -p /var/log/supervisor \
