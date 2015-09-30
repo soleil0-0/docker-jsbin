@@ -11,6 +11,7 @@ dockerize jsbin
 ## Preparation
 
 1. git submodule init && git submodule update
+- perl -i -p0e 's/"optionalDependencies".*},//s' src/package.json
 - find src -type f -exec grep -Iq git:// {} \; -and -print | xargs sed -i 's~git://~https://~g'
 - if you use NTLM, please change CNTLM value `ENV CNTLM x.x.x.x` in Dockerfile.or you can just remove that line.
 
@@ -32,6 +33,10 @@ dockerize jsbin
 			- sudo docker ps -a | grep 'minute\|seconds\|jsbin' | awk '{print $1}' | xargs sudo docker rm
             	- sudo docker ps -a -f="exited=0" -q | xargs sudo docker rm
             - sudo docker images | grep '\<none\>\|qband/docker-jsbin' | awk '{print $3}' | xargs sudo docker rmi
+        - delete unused docker log file
+            - find . -name 'docker.*.log' | sort | wc -l
+            - find . -name 'docker.*.log' | sort | head -n X | xargs rm -f
+            - find . -name 'docker.*.log' | sort | tail -n X | xargs rm -f
 
 ## Reference
 - [docker-node-hello](https://github.com/spkane/docker-node-hello)

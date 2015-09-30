@@ -18,8 +18,13 @@ RUN if [ "${CNTLM}" != "" ]; then \
 		&& git config --global http.sslVerify false \
 		&& npm config set proxy http://${CNTLM}:3128 \
 		&& npm config set https-proxy http://${CNTLM}:3128 \
+		&& npm config set registry http://registry.npmjs.org \
 		&& npm config set strict-ssl false ;\
 	fi
+
+## check configuration of git & npm
+#RUN git config --list --global \
+#		&& npm config list
 
 # The daemons
 RUN apt-get -y update \
@@ -36,9 +41,8 @@ WORKDIR $AP
 ENV JSBIN_CONFIG $AP/config.default.json
 
 RUN npm update -g \
-	&& npm install --save memcached@2.2.0 \
-	&& npm install \
-	&& npm cache clean
+	&& npm i -S memcached@2.2.0 \
+	&& npm i
 
 #CMD ["supervisord", "-n"]
 CMD ["node", "./bin/jsbin"]
