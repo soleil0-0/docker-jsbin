@@ -4,7 +4,7 @@ FROM node:0.10
 
 MAINTAINER qband <q7band@gmail.com>
 
-USER root
+#USER root
 
 ENV AP /data/app
 ENV SCPATH /etc/supervisor/conf.d
@@ -23,7 +23,7 @@ RUN if [ "${CNTLM}" != "" ]; then \
 
 # The daemons
 RUN apt-get -y update \
-	&& apt-get -y install supervisor \
+	&& apt-get -y install apt-utils supervisor \
 	&& mkdir -p /var/log/supervisor
 
 # Supervisor Configuration
