@@ -41,7 +41,7 @@ WORKDIR $AP
 ENV JSBIN_CONFIG $AP/config.default.json
 
 RUN npm update -g \
-	&& npm i -S memcached@2.2.0 \
+	&& npm i -S memcached@2.2.0 connect \
 	&& npm i
 
 #CMD ["supervisord", "-n"]

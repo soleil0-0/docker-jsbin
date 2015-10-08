@@ -4,7 +4,7 @@ install:
 		&& npm install
 
 build:
-	docker build -t qband/docker-jsbin:latest . > docker.$(shell date +%Y%m%d-%H%M%S).log
+	docker build -t qband/jsbin:latest . > docker.$(shell date +%Y%m%d-%H%M%S).log
 
 run:
 	cd src \
@@ -13,7 +13,7 @@ run:
 run-container:
 	docker run --name jsbin \
 		-d -p 8082:3000 \
-		qband/docker-jsbin
+		qband/jsbin
 #		-e CNTLM=x.x.x.x \
 
 run-sp:
