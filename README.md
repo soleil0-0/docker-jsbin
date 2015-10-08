@@ -11,8 +11,13 @@ So this repository provide a way to run latest jsbin locally by means of dockeri
 
 ## Preparation
 
-1. git submodule init && git submodule update
-- find src -type f -exec grep -Iq git:// {} \; -and -print | xargs sed -i 's~git://~https://~g'
+1. get git submodule source code
+	- git submodule init && git submodule update
+- replace https link with http
+	- find src -type f -exec grep -Iq git:// {} \; -and -print | xargs sed -i 's~git://~https://~g'
+- change js, css link from absolute path to relative path
+	- sed -i "s~app\.set('url full'.*~app\.set('url full', options\.url\.prefix);~" src/lib/app.js
+	- sed -i "s~return path ? proto + ':\/\/' + root + '\/' + (path || '') : proto + ':\/\/' + root;~return path? path: '';~" src/lib/helpers.js
 - if you use NTLM, please change CNTLM value `ENV CNTLM x.x.x.x` in Dockerfile.or you can just remove that line.
 
 ## Command
