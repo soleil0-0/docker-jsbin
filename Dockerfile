@@ -41,6 +41,7 @@ WORKDIR $AP
 ENV JSBIN_CONFIG $AP/config.default.json
 
 RUN npm update -g \
+	&& npm uninstall --save-optional zmq \
 	&& npm i -S memcached@2.2.0 connect \
 	&& npm i
 

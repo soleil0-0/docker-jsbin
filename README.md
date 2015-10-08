@@ -11,7 +11,6 @@ dockerize jsbin
 ## Preparation
 
 1. git submodule init && git submodule update
-- perl -i -p0e 's/"optionalDependencies".*},//s' src/package.json
 - find src -type f -exec grep -Iq git:// {} \; -and -print | xargs sed -i 's~git://~https://~g'
 - if you use NTLM, please change CNTLM value `ENV CNTLM x.x.x.x` in Dockerfile.or you can just remove that line.
 
