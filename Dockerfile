@@ -47,3 +47,6 @@ RUN npm update -g \
 
 #CMD ["supervisord", "-n"]
 CMD ["node", "./bin/jsbin"]
+
+EXPOSE 3000
+VOLUME $AP

@@ -1,6 +1,7 @@
 # node-jsbin
 
-dockerize jsbin
+if you install in this way `npm i -g jsbin`, jsbin is not the latest, is a very old version.  
+So this repository provide a way to run latest jsbin locally by means of dockerizing jsbin
 
 ## Prerequisites
 
@@ -39,3 +40,4 @@ dockerize jsbin
 
 ## Reference
 - [docker-node-hello](https://github.com/spkane/docker-node-hello)
+- [jsbin branch that has Dockerfile](https://github.com/jsbin/jsbin/tree/254ceb59f4d415948e0a8eac255e2dfe5d0ae353)
