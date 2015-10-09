@@ -43,6 +43,11 @@ So this repository provide a way to run latest jsbin locally by means of dockeri
             - find . -name 'docker.*.log' | sort | head -n X | xargs rm -f
             - find . -name 'docker.*.log' | sort | tail -n X | xargs rm -f
 
+## known issues
+
+- can't save
+	- [https://github.com/jsbin/jsbin/issues/2448](https://github.com/jsbin/jsbin/issues/2448)
+
 ## Reference
 - [docker-node-hello](https://github.com/spkane/docker-node-hello)
 - [jsbin branch that has Dockerfile](https://github.com/jsbin/jsbin/tree/254ceb59f4d415948e0a8eac255e2dfe5d0ae353)
